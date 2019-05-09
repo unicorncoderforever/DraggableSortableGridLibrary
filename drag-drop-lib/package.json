@@ -1,0 +1,35 @@
+{
+  "name": "react-native-drag-drop-grid-library",
+  "version": "1.0.0",
+  "description": "A react-native Drag Drop Grid library works animations are similar to android default launcher app ",
+  "main": "built/index.js",
+  "types": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch",
+    "build": "tsc"
+  },
+  "keywords": [
+    "react-native",
+    "drag",
+    "drop",
+    "Grid",
+    "Sortable",
+    "Grid"
+  ],
+  "author": "Preethi Rao",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "*",
+    "@types/react-native": "*",
+    "react": "*",
+    "react-native": "^0.59.6",
+    "typescript": "^3.4.5"
+  },
+  "peerDependencies": {
+    "lodash": "^4.17.4",
+    "react": "*",
+    "react-native": "*",
+    "react-native-extra-dimensions-android": "^1.2.5"
+  }
+}
