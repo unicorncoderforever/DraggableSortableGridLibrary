@@ -3,7 +3,7 @@ import { StyleSheet, Animated, PanResponder, Image, View } from 'react-native';
 
 import Tile from './Tile';
 import _ from 'lodash';
-import { Style } from './styles';
+
 import { throttle } from 'lodash';
 
 // import block from './block';
@@ -579,7 +579,7 @@ export class DragDropGrid extends React.Component<props, state> {
     let blockWidth = this.state.blockWidth;
     let blockHeight = this.state.blockHeight;
     let placeOnRow = this.items.length % this.itemsPerRow;
-    let y = blockHeight * Math.floor(this.items.length / this.itemsPerRow) + Style.getHeight(20);
+    let y = blockHeight * Math.floor(this.items.length / this.itemsPerRow) + 20;
     let x = placeOnRow * blockWidth;
     return { x, y };
   };
@@ -739,7 +739,7 @@ export class DragDropGrid extends React.Component<props, state> {
       this.items.forEach((item, order) => {
         let blockIndex = _.findKey(this.itemOrder, item => item.order == order);
         let x = (order * this.state.blockWidth) % (this.itemsPerRow * this.state.blockWidth);
-        let y = Math.floor(order / this.itemsPerRow) * this.state.blockHeight + Style.getHeight(20);
+        let y = Math.floor(order / this.itemsPerRow) * this.state.blockHeight + 20;
         this.blockPositions[blockIndex].origin = { x, y };
         if (this.key == null) {
           this.blockPositions[blockIndex].currentPosition = new Animated.ValueXY({ x, y });

@@ -27,7 +27,6 @@ var React = __importStar(require("react"));
 var react_native_1 = require("react-native");
 var Tile_1 = __importDefault(require("./Tile"));
 var lodash_1 = __importDefault(require("lodash"));
-var styles_1 = require("./styles");
 var lodash_2 = require("lodash");
 // import block from './block';
 // Default values
@@ -324,7 +323,7 @@ var DragDropGrid = /** @class */ (function (_super) {
             var blockWidth = _this.state.blockWidth;
             var blockHeight = _this.state.blockHeight;
             var placeOnRow = _this.items.length % _this.itemsPerRow;
-            var y = blockHeight * Math.floor(_this.items.length / _this.itemsPerRow) + styles_1.Style.getHeight(20);
+            var y = blockHeight * Math.floor(_this.items.length / _this.itemsPerRow) + 20;
             var x = placeOnRow * blockWidth;
             return { x: x, y: y };
         };
@@ -431,7 +430,7 @@ var DragDropGrid = /** @class */ (function (_super) {
                 _this.items.forEach(function (item, order) {
                     var blockIndex = lodash_1.default.findKey(_this.itemOrder, function (item) { return item.order == order; });
                     var x = (order * _this.state.blockWidth) % (_this.itemsPerRow * _this.state.blockWidth);
-                    var y = Math.floor(order / _this.itemsPerRow) * _this.state.blockHeight + styles_1.Style.getHeight(20);
+                    var y = Math.floor(order / _this.itemsPerRow) * _this.state.blockHeight + 20;
                     _this.blockPositions[blockIndex].origin = { x: x, y: y };
                     if (_this.key == null) {
                         _this.blockPositions[blockIndex].currentPosition = new react_native_1.Animated.ValueXY({ x: x, y: y });
