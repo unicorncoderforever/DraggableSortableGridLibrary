@@ -1,7 +1,6 @@
 
 .idea
 node_modules
-built
 demo
 .watchmanconfig
 build
