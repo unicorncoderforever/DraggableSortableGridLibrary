@@ -9,7 +9,8 @@
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59.8",
-    "react-native-extra-dimensions-android": "^1.2.5"
+    "react-native-extra-dimensions-android": "^1.2.5",
+    "react-native-drag-drop-grid-library": "file:./drag-drop-lib"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
