@@ -39,7 +39,6 @@ render(){
       activeBlockCenteringDuration={200}
       itemsPerRow={4}
       dragActivationTreshold={200}
-      merge={true}
       onDragRelease   = { (itemOrder) => console.log("Drag was released, the blocks are in the following order: ", itemOrder)       }   
       onDragStart = { (key)          => console.log("Some block is being dragged now!",key) }>
         {
