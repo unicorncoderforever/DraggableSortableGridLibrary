@@ -121,11 +121,11 @@ render() {
               <View
               style={[
               styles.circle,
-              { width: Style.getWidth(25), height: Style.getWidth(25), backgroundColor: '#1A325E' },
+              { width: 25, height: 25, backgroundColor: '#1A325E' },
               this.props.style
               ]}
               >
-             <Image resizeMode="contain" style={{ height: Style.getHeight(19) }} source={require('./assets/close_white.png')} />
+             <Image resizeMode="contain" style={{ height: 19 }} source={require('./assets/close_white.png')} />
             </View>
             </TouchableOpacity>
             </View>
