@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Animated, PanResponder, Image, View } from 'react-native';
+import { StyleSheet, Animated, PanResponder,I18nManager, Image, View } from 'react-native';
 
 import Tile from './Tile';
 import _ from 'lodash';
@@ -903,19 +903,27 @@ export class DragDropGrid extends React.Component<props, state> {
       this._getBlock(key).origin.y) /
     50;
 
-  _getBlockStyle = key => [
-    {
-      width: this.state.blockWidth,
-      height: this.state.blockHeight,
-      justifyContent: 'center'
-    },
-    this._blockPositionsSet() && {
+  _getBlockStyle = key => {
+    let directionalLayout = {};
+    if(this._blockPositionsSet()){
+      directionalLayout = I18nManager.isRTL ?
+          {right:  this._getBlock(key).currentPosition.getLayout().left}:
+          {left: this._getBlock(key).currentPosition.getLayout().left}
+    }
+
+    return [
+      {
+        width: this.state.blockWidth,
+        height: this.state.blockHeight,
+        justifyContent: 'center'
+      },
+      this._blockPositionsSet() && {
         position: 'absolute',
         top: this._getBlock(key).currentPosition.getLayout().top,
-        left: this._getBlock(key).currentPosition.getLayout().left,
+        ...directionalLayout,
         transform: [
           {
-              scale: this._getBlock(key).pop.interpolate({
+            scale: this._getBlock(key).pop.interpolate({
               inputRange: [-1, 0, 1],
               outputRange: [0.5, 1, 1]
             })
@@ -929,12 +937,13 @@ export class DragDropGrid extends React.Component<props, state> {
         ]
       },
 
-    this.state.activeBlock == key && this._blockActivationWiggle(key),
-    this.state.activeBlock == key && { zIndex: 1 },
-    this.state.deleteBlock != null && { zIndex: 2 },
-    this.state.deleteBlock == key && { opacity: this.state.deleteBlockOpacity },
+      this.state.activeBlock == key && this._blockActivationWiggle(key),
+      this.state.activeBlock == key && { zIndex: 1 },
+      this.state.deleteBlock != null && { zIndex: 2 },
+      this.state.deleteBlock == key && { opacity: this.state.deleteBlockOpacity },
 
-  ];
+    ];
+  }
 }
 
 const styles = StyleSheet.create({
