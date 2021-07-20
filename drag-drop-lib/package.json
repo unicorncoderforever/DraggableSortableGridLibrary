@@ -27,7 +27,7 @@
     "@types/react": "*",
     "@types/react-native": "*",
     "react": "*",
-    "react-native": "^0.59.6",
+    "react-native": "^0.62.3",
     "typescript": "^3.4.5"
   },
   "peerDependencies": {
